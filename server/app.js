@@ -15,8 +15,6 @@ app.get('/', (request, response) => {
     .pipe(csv())
     .on('data', (data) => results.push(data))
     .on('end', () => {
-        console.log(results);
-
         for(let row of results){
             mapData.push({
                 "lat": parseFloat(row["lat"]),
@@ -24,10 +22,6 @@ app.get('/', (request, response) => {
             })
         }
         response.send(mapData);
-        // [
-        //   { NAME: 'Daffy Duck', AGE: '24' },
-        //   { NAME: 'Bugs Bunny', AGE: '22' }
-        // ]
     });
     
 });
