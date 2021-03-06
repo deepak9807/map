@@ -7,7 +7,7 @@ function task(i, poly, path, data) {
   setTimeout(function() { 
       path.push(new google.maps.LatLng(data["lat"], data["lng"]))
       poly.setPath(path)
-  }, 2000*i); 
+  }, 1000*i); 
 }
 function initMap() {
     fetch("http://localhost:3000/")
@@ -15,15 +15,19 @@ function initMap() {
       return response.json()
     }).then(data =>{
       const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 15,
+        zoom: 13,
         center: {"lat":13.78911167,"lng":100.60405},
         mapTypeId: google.maps.MapTypeId.ROADMAP,
+       
       });
   
       const poly = new google.maps.Polyline({
         path: [],
         geodesic: true,
-        map
+        map,
+        strokeColor: 'blue',
+        strokeOpacity: 1,
+        strokeWeight: 5,
       });
       poly.setMap(map);
       for(let i =0; i <data.length; i++){
