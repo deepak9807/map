@@ -16,6 +16,7 @@ Setup Server:
 Frontend:
 
 frontend contain html, css, index.html, js 
-open index.html in brwoser.
+
+Open index.html in brwoser.
 
 
